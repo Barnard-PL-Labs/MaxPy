@@ -1,0 +1,84 @@
+{
+  "default": {
+    "box": {
+      "id": "obj-215",
+      "maxclass": "message",
+      "numinlets": 2,
+      "numoutlets": 1,
+      "outlettype": [
+        ""
+      ],
+      "patching_rect": [
+        100.0,
+        100.0,
+        50.0,
+        22.0
+      ]
+    }
+  },
+  "args": {
+    "required": [
+      {
+        "name": "message",
+        "type": [
+          "list"
+        ]
+      },
+      {
+        "name": "changeable-arg",
+        "type": [
+          "symbol"
+        ]
+      },
+      {
+        "name": "comma",
+        "type": [
+          "symbol"
+        ]
+      },
+      {
+        "name": "backslash",
+        "type": [
+          "symbol"
+        ]
+      }
+    ],
+    "optional": []
+  },
+  "attribs": [
+    {
+      "name": "COMMON"
+    },
+    {
+      "name": "bgcolor",
+      "type": "atom",
+      "size": "1"
+    },
+    {
+      "name": "bgcolor2",
+      "type": "atom",
+      "size": "1"
+    },
+    {
+      "name": "bgfillcolor",
+      "type": "float",
+      "size": "4"
+    },
+    {
+      "name": "dontreplace",
+      "type": "int",
+      "size": "1"
+    },
+    {
+      "name": "gradient",
+      "type": "atom",
+      "size": "1"
+    },
+    {
+      "name": "style",
+      "type": "symbol",
+      "size": "1"
+    }
+  ],
+  "in/out": {}
+}
