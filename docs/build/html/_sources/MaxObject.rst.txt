@@ -1,0 +1,4 @@
+MaxObject
+===============
+
+.. autoclass:: maxpy.MaxObject

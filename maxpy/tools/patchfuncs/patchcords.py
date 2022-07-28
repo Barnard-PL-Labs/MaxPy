@@ -4,21 +4,21 @@ tools.patchfuncs.patchcords
 Methods related to patchcords in a MaxPatch.
 
     connect() --> create patchcords connecting objects
-    
+
     check_connection_format() --> check connections are specified correctly as (Outlet, Inlet, [midpoints]) tuples
     check_connection_typing() --> check connections are allowed wrt typing *TBD*
-    
+
     check_connection_exists() --> for deleting - check connection exists
-    
+
     swap_patchcords() --> for replacing - swap all possible patchcords between two objects
-    
-    
+
+
 """
 
-from MaxPy.maxpy.xlet import Inlet, Outlet
+from maxpy.xlet import Inlet, Outlet
 
 #user usage
-def connect(self, *connections, verbose=True): 
+def connect(self, *connections, verbose=True):
     """
     Connect objects with patchcords.
     ***Need to work out specification syntax!****
@@ -37,7 +37,7 @@ def connect(self, *connections, verbose=True):
         inlet = connection[1]
         outlet = connection[0]
         midpoints = [None]
-        if len(connection) ==3: 
+        if len(connection) ==3:
             midpoints = connection[2]
 
         inlet._sources.append(outlet)
@@ -55,9 +55,9 @@ def connect(self, *connections, verbose=True):
 
 def swap_patchcords(self, new, old):
     """
-    Helper function for replace. 
+    Helper function for replace.
 
-    Swaps all possible patchcords from the old object to new object. 
+    Swaps all possible patchcords from the old object to new object.
     """
 
     new_connections = []
@@ -115,7 +115,7 @@ def check_connection_typing(self, connections):
     """
     Helper function for patchcords.
 
-    Removes improperly typed connections from list and returns updated list. 
+    Removes improperly typed connections from list and returns updated list.
     """
     ###PLACEHOLDER!
 
@@ -133,7 +133,7 @@ def check_connection_exists(self, connections):
 
     for connection in connections:
         outlet = connection[0]
-        inlet = connection[1] 
+        inlet = connection[1]
 
         #check outlet has destination, inlet has source
         if (inlet in outlet.destinations) and (outlet in inlet.sources):
@@ -144,5 +144,3 @@ def check_connection_exists(self, connections):
                   inlet.parent.name, ": inlet", inlet.index)
 
     return existing_connections
-
-

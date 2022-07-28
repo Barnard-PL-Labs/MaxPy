@@ -2,9 +2,9 @@
 tools.patchfuncs.instantiation
 
 Functions for instantiation of a MaxPatch.
-    
+
     load_template() --> create patch from template
-    
+
     load_file() --> create patch from existing .maxpat file
         load_objs_from_dict() --> create objects from existing .maxpat file dict
         load_patchcords_from_dict() --> create patchcords from existing .maxpat file dict
@@ -14,7 +14,7 @@ Functions for instantiation of a MaxPatch.
 
 import os
 import json
-from MaxPy.maxpy.maxobject import MaxObject
+from maxpy.maxobject import MaxObject
 
 
 #from template
@@ -49,7 +49,7 @@ def load_template(self, t, verbose=True):
 def load_file(self, f, reorder=True, verbose=True):
     """
     Helper function for instantiation.
-    Loads in an existing .maxpat file. 
+    Loads in an existing .maxpat file.
 
     reorder --> re-number objects, starting from 1
     verbose --> log to console
@@ -69,7 +69,7 @@ def load_file(self, f, reorder=True, verbose=True):
 
     #then load in patchcords
     self.load_patchcords_from_dict(patch_dict, verbose=verbose)
-    
+
     #then load in cleaned patchdict
     self._patcher_dict = self.clean_patcher_dict(patch_dict)
 
@@ -81,7 +81,7 @@ def load_file(self, f, reorder=True, verbose=True):
     if verbose:
         print("Patcher: patch loaded from existing file:", os.path.split(f)[-1])
 
-    return        
+    return
 
 
 
@@ -90,7 +90,7 @@ def load_objs_from_dict(self, patch_dict, verbose=True):
     Helper function for load_file.
     Loads in objects from a full patch dict.
     """
-    
+
     self._num_objs = 0
     #for each obj, make obj from the obj json dict
     for box in patch_dict['patcher']['boxes']:
@@ -98,10 +98,10 @@ def load_objs_from_dict(self, patch_dict, verbose=True):
 
         #add obj to patch
         self._num_objs += 1
-        
+
         obj_id = obj._dict['box']['id']
         self._objs[obj_id] = obj
-        
+
         if verbose:
             print("Patcher:", obj.name, "added, total objects", self._num_objs)
 
@@ -113,7 +113,7 @@ def load_patchcords_from_dict(self, patch_dict, verbose=True):
 
     """
     Helper function for load_file.
-    Loads in patchcords from a patch dict and removes patchcords from patch dict. 
+    Loads in patchcords from a patch dict and removes patchcords from patch dict.
     (must have objs loaded into patch already)
     """
 
@@ -129,7 +129,7 @@ def load_patchcords_from_dict(self, patch_dict, verbose=True):
             midpoints = line['patchline']['midpoints']
 
         #make the connection!
-        self.connect([self._objs[source_obj].outs[source_outlet], 
+        self.connect([self._objs[source_obj].outs[source_outlet],
                       self._objs[dest_obj].ins[dest_inlet], midpoints], verbose=verbose)
 
     return
@@ -137,14 +137,13 @@ def load_patchcords_from_dict(self, patch_dict, verbose=True):
 def clean_patcher_dict(self, patch_dict):
     """
     Helper function for load_file.
-    
+
     Removes box and line information from the given dict.
     """
-    
+
     #self._patcher_dict doesn't hold box/cord info...
     #gets added in automatically during saving, so we gotta get rid of it here
     patch_dict['patcher']['boxes'] = []
     patch_dict['patcher']['lines'] = []
-    
-    return patch_dict
 
+    return patch_dict

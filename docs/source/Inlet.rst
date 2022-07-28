@@ -1,0 +1,4 @@
+Inlet
+===========
+
+.. autoclass: maxpy.Inlet

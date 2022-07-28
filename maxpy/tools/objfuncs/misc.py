@@ -1,15 +1,15 @@
 """
-.tools.obj.misc 
+.tools.obj.misc
 
 Miscellaneous functions for the MaxObject class.
 
     notknown() --> check to see if the object has a reference file
     __str__(), __repr__() --> printing and rep of object, for info/debugging purposes
-    
+
 """
 
 
-from MaxPy.maxpy.xlet import Inlet, Outlet
+from maxpy.xlet import Inlet, Outlet
 
 def notknown(self):
     """
@@ -29,13 +29,13 @@ def notknown(self):
     #return self.notknown()
 
 def __repr__(self):
-    
+
     rep = self.name + " ["
     if 'text' in self._dict['box'].keys():
         rep += self._dict['box']['text']
     else:
         rep += self._dict['box']['maxclass']
-    
+
     rep += "]"
-    
+
     return rep

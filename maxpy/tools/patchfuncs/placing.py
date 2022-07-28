@@ -2,34 +2,34 @@
 tools.patchfuncs.placing
 
 Methods related to placing objects in a MaxPatch.
-    
+
     place() --> user function, driver for placing objs
-    
+
     place_check_args() --> check that arguments given are correct
     place_pick_objs() --> generate list of objs to be placed (picked randomly or multiplied from given list)
-    
+
     place_random() --> place objects randomly
     place_grid() --> place objects on grid
     place_custom() --> place objects with custom spacing
     place_vertical() --> place objects with vertical spacing
-    
+
     place_obj() --> place a single object
     get_obj_from_spec() --> return object from specification (either MaxObject or string)
 
 """
 import random
-from MaxPy.maxpy.maxobject import MaxObject
+from maxpy.maxobject import MaxObject
 
 #for user usage
 def place(self, *objs, randpick=False, num_objs=None, seed=None, weights=None,
              spacing_type='grid', spacing=[80.0, 80.0], starting_pos=None, verbose=False):
     """
-    Place objects in the patch. 
+    Place objects in the patch.
 
             objs --> list of object names as strings, OR list of objects as prev. created MaxObjects (or mix of both)
         randpick --> True: pick n random objs from objs list (default pick 1)
               - num_objs --> integer: n = num_objs
-              - num_objs --> list: give error & take first element on list 
+              - num_objs --> list: give error & take first element on list
               - num_objs --> None: n = len(objs)
         randpick --> False: pick all objs on objs list (default each picked once)
               - num_objs --> integer: each obj multiplied by num_objs
@@ -37,22 +37,22 @@ def place(self, *objs, randpick=False, num_objs=None, seed=None, weights=None,
               - num_objs --> None: n = len(objs)
             seed --> random seed for picking/placing objs, if None then random seed
          weights --> weight probabilities for picking objs, if None then equal probability
-    spacing_type --> options for how to place objs on canvas 
+    spacing_type --> options for how to place objs on canvas
               - "grid": objects centered on a grid
                     - spacing --> tuple/list length 2: [x, y] grid spacings
               - "random": random locations, using same seed as before (overlaps possible)
-                    - spacing --> N/A 
+                    - spacing --> N/A
               - "custom": location specified for each object
                     - spacing --> list: positions [[x, y]], can only be used for num_objs=1
               - "vertical": objects stacked vertically
                     - spacing --> number: specify height
     starting_pos --> starting position to place from, must be tuple/list length 2: [x, y]
 
-    verbose --> print output for seed, etc. 
+    verbose --> print output for seed, etc.
 
     """
     #check arguments are correct
-    num_objs, starting_pos = self.place_check_args(objs, randpick, num_objs, seed, weights, 
+    num_objs, starting_pos = self.place_check_args(objs, randpick, num_objs, seed, weights,
                                                    spacing_type, spacing, starting_pos)
 
     #set the starting position
@@ -101,7 +101,7 @@ def place_check_args(self, objs, randpick, num_objs, seed, weights, spacing_type
     #check randpick possibilities
     if randpick==False:
         if isinstance(num_objs, list): #giving number of multiples for each given object
-            assert len(num_objs) == len(objs), f"if num_objs is list, length of num_objs must match length of objs" 
+            assert len(num_objs) == len(objs), f"if num_objs is list, length of num_objs must match length of objs"
     elif randpick==True:
         if isinstance(num_objs, list): #only take the first number for random picking
             print("warning: randpick only uses the first element of num_objs to determine the number of objects picked")
@@ -134,7 +134,7 @@ def place_check_args(self, objs, randpick, num_objs, seed, weights, spacing_type
                                                                          "must give one position for each object in objs list"
     elif spacing_type=="vertical":
         assert isinstance(spacing, (int, float)), f"spacing_type=vertical: spacing must " \
-                                                   "be int or float for vertical spacing"   
+                                                   "be int or float for vertical spacing"
     else:
         assert False, f"spacing_type not recognized, must be one of grid, random, custom, or vertical"
 
@@ -179,7 +179,7 @@ def place_pick_objs(self, objs, randpick, num_objs, seed, weights, verbose):
 def place_grid(self, objs, spacing, verbose=False):
     """
     Helper function for placing.
-    Places objects in a grid. 
+    Places objects in a grid.
     """
 
     if verbose:
@@ -235,7 +235,7 @@ def place_random(self, objs, seed, verbose=False):
 def place_custom(self, objs, positions, verbose=False):
     """
     Helper function for placing.
-    Places objects according to custom positions. 
+    Places objects according to custom positions.
     """
 
     if verbose:
@@ -252,7 +252,7 @@ def place_custom(self, objs, positions, verbose=False):
 def place_vertical(self, objs, spacing, verbose=False):
     """
     Helper function for placing.
-    Places objects vertically. 
+    Places objects vertically.
     """
 
     if verbose:

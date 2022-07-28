@@ -4,25 +4,25 @@ tools.obj.makexlets
 Methods related to making/removing xlets in MaxObjects.
 
     make_xlets_from_self_dict() --> make xlets from information in self._dict
-    
+
     update_ins_outs() --> (mostly driver func) update xlets according to text args
-    
-        parse_io_num() --> get new number of ins/outs by comparing text args with ref file info 
-        add_xlets() --> add the given number of xlets 
-        remove_xlets --> remove the given number of xlets 
-    
-        update_xlet_typing() --> fill in proper type info for all xlets 
+
+        parse_io_num() --> get new number of ins/outs by comparing text args with ref file info
+        add_xlets() --> add the given number of xlets
+        remove_xlets --> remove the given number of xlets
+
+        update_xlet_typing() --> fill in proper type info for all xlets
             parse_io_typing --> read ref file info to get a list of types, one for each xlet
-    
+
     Special-case functions:
     get_trigger_out_types() --> get outlet types for trigger object
     get_unpack_out_types() --> get outlet types for unpack object
-    update_vst() --> update self.dict for vst~ object 
-    
+    update_vst() --> update self.dict for vst~ object
+
 """
 
-from MaxPy.maxpy.xlet import Inlet, Outlet
-from MaxPy.maxpy.tools import typechecks as tc
+from maxpy.xlet import Inlet, Outlet
+from maxpy.tools import typechecks as tc
 
 
 def make_xlets_from_self_dict(self):
@@ -38,15 +38,15 @@ def make_xlets_from_self_dict(self):
 
     #get default outlet types
     out_types = [None] * self._dict['box']['numoutlets'] #default to none...
-    
+
     #if they're given in the dict, retrieve
     if 'outlettype' in self._dict['box'].keys():
-        
+
         out_types = self._dict['box']['outlettype'].copy()
-        
+
         #change "" to "any", for typechecking purposes...
         out_types = ["any" if type == "" else type for type in out_types]
-        
+
     #make outlets
     self._outs = [Outlet(self, index, types=x) for index, x in zip(range(self._dict['box']['numoutlets']), out_types)]
 
@@ -60,15 +60,15 @@ def update_ins_outs(self, inout_info, default_info):
     """
     Helper function for instantiation and editing.
 
-    Adds or removes inlets and outlets according to text arguments and in/out info. 
-    if removed xlets had connections, those connections are also removed. 
+    Adds or removes inlets and outlets according to text arguments and in/out info.
+    if removed xlets had connections, those connections are also removed.
     """
 
     #if no text args or no changes possible, do nothing
     if self._args==[] or inout_info=={}:
         return
 
-    #add or remove inlets and outlets 
+    #add or remove inlets and outlets
     for xlet_type, self_xlets in zip(['numinlets', 'numoutlets'], [self._ins, self._outs]):
         #if there's updates
         if xlet_type in inout_info.keys():
@@ -77,23 +77,23 @@ def update_ins_outs(self, inout_info, default_info):
 
             diff = new_xlets - curr_xlets #get difference between new number and current number
 
-            if diff != 0: #don't do anything if same num 
+            if diff != 0: #don't do anything if same num
                 #add or remove xlets
                 if diff > 0:
-                    self.add_xlets(diff, xlet_type) 
+                    self.add_xlets(diff, xlet_type)
                 elif diff < 0:
                     self.remove_xlets(diff, xlet_type)
 
                 #update typing
                 self.update_xlet_typing(inout_info, xlet_type, new_xlets)
-                
+
     #update numbers in self._dict, based on self._ins and self._outs
     self.update_dict_io_nums()
-    
+
     #update vst bc it's weird....
     if self._name == 'vst~':
         self.update_vst()
-        
+
 
     return
 
@@ -102,9 +102,9 @@ def parse_io_num(self, info, default_num):
     """
     Helper function for updating ins and outs.
 
-    Parses xlet info and returns the new number of xlets. 
+    Parses xlet info and returns the new number of xlets.
     """
-    #parse io info and args to get proper number of xlets 
+    #parse io info and args to get proper number of xlets
 
     sum = 0
     for term in info:
@@ -119,11 +119,11 @@ def parse_io_num(self, info, default_num):
         #next, parse index term
         index = term['index']
         if index=='all':            #take number of args if index is all
-            base_num = len(args)                        
+            base_num = len(args)
         else:                       #otherwise, look for arg at specified index
             if len(args) <= index:
                 return default_num       #if not enough args of type, return default number of xlets
-            base_num = int(args[index])  #otherwise, take the arg at index 
+            base_num = int(args[index])  #otherwise, take the arg at index
 
         #then, parse accepted values term
         if 'acc_vals' in term.keys():
@@ -146,7 +146,7 @@ def parse_io_num(self, info, default_num):
 
 def add_xlets(self, num, xlet_type):
     """
-    Helper function for updating ins and outs. 
+    Helper function for updating ins and outs.
 
     Adds the given number of xlets. (does not update typing!)
     """
@@ -164,7 +164,7 @@ def remove_xlets(self, num, xlet_type):
     """
     Helper function for updating ins and outs.
 
-    Removes the given number of xlets and any attached patchcords. (does not update typing!) 
+    Removes the given number of xlets and any attached patchcords. (does not update typing!)
     """
 
     if xlet_type == 'numinlets':
@@ -191,13 +191,13 @@ def remove_xlets(self, num, xlet_type):
 def update_dict_io_nums(self):
     """
     Helper function for updating ins and outs.
-    
+
     Updates the numinlets/numoutlets entries in self._dict, according to self._ins and self._outs.
     """
-    
+
     self._dict['box']['numinlets'] = len(self._ins)
     self._dict['box']['numoutlets'] = len(self._outs)
-    
+
     return
 
 
@@ -260,7 +260,7 @@ def parse_io_typing(self, type_info, num_xlets):
         #then, fill in types for beginning xlets
         if 'first' in type_info.keys():
             #how many xlets at the beginning are specified by these types
-            num_firsts, first_types = type_info['first'] 
+            num_firsts, first_types = type_info['first']
 
             #when first_types is just one string, all the same type
             if isinstance(first_types, str):
@@ -286,7 +286,3 @@ def parse_io_typing(self, type_info, num_xlets):
 
 
     return new_types
-
-
-
-
