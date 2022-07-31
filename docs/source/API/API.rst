@@ -10,9 +10,9 @@ API
 
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
-   MaxPatch.rst
-   MaxObject.rst
-   Inlet.rst
-   Outlet.rst
+   maxpatch
+   maxobject
+   inlet
+   outlet

@@ -4,21 +4,24 @@ tools.patchfuncs.checking
 Methods related to checking MaxPatches (currently for unknown/abstraction/js links)
 
     check() --> get info on unknowns, abstractions, and js files
-    
+
     get_unknowns() --> get unknown objects
     get_abstractions() --> get abstractions
-    get_js_objs() --> get js objects, linked and unlinked 
-    
+    get_js_objs() --> get js objects, linked and unlinked
+
 """
+import os
 
 def check(self, *flags):
     """
-    Check for linked/unknown objects in the patch. 
+    This method checks the patch for linked abstractions, unknown objects, and linked/unlinked js objects.
 
-    Supported flags:
-        abstractions: check for linked abstractions
-            unknowns: check for unknown objects
-                  js: check for js objects for links/unlinked
+    :param \*flags: takes keywords ``'abstractions'``, ``'unknowns'``, ``'js'``. If no flags given, checks all three categories.
+    :type \*flags: str, optional
+
+    :returns: outputs a list of all the objects that fall under the specified categories, \
+    identified by object id, name, text, and linked file (if applicable).
+    :rtype: printed output
     """
 
     flags = list(flags)
@@ -46,7 +49,7 @@ def check(self, *flags):
         if js_unlinked:
             print("PatchCheck: unlinked js objects :")
             for label, obj in js_unlinked.items():
-                print("              ", label, ":", obj, "-->", os.path.basename(obj._ext_file))
+                print("              ", label, ":", obj)
 
 
         else:
@@ -71,7 +74,7 @@ def check(self, *flags):
 
         else:
             print("PatchCheck: linked abstractions (files must be in same folder as patch file): no linked abstractions")
-        print() 
+        print()
 
     return
 
@@ -106,7 +109,7 @@ def get_abstractions(self):
 
 def get_js_objs(self):
     """
-    Get a list of js files in the patch. 
+    Get a list of js files in the patch.
     """
 
     linked = {}

@@ -35,3 +35,5 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 html_sidebars = { '**': ['globaltoc.html', 'relations.html', 'sourcelink.html', 'searchbox.html'] }
 
 autodoc_mock_imports = ['bs4', 'requests']
+
+autodoc_member_order = "bysource"

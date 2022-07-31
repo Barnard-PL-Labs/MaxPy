@@ -20,12 +20,16 @@ from maxpy.xlet import Inlet, Outlet
 #user usage
 def connect(self, *connections, verbose=True):
     """
-    Connect objects with patchcords.
-    ***Need to work out specification syntax!****
+    This method creates patchcords to connect objects. *currently fixing connection specification...*
 
-    For now:
-    input --> list of triples (outlet, inlet, midpoints) referencing MaxObject.Outlet, MaxObject.Inlet, list of midpoints
-          --> or, if midpoints not given, midpoints = None
+    :param \*connections: a list of connections to make. Each connection must be specified as a tuple \
+    (:class:`~maxpy.Outlet`, :class:`~maxpy.Inlet` (, ``list``)). The optional third element specifies midpoints \
+    (curves) of the patchcord as a list of [x, y] coordinates.
+
+    :param verbose: for logging output.
+    :type verbose: bool, optional; default: True
+
+    :returns: None
     """
 
     #check correct format, remove incorrectly typed connections
@@ -45,7 +49,7 @@ def connect(self, *connections, verbose=True):
         outlet._destinations.append(inlet)
 
         if verbose:
-            print("connected: (", outlet.parent.name, ": outlet", outlet.index, \
+            print("Patcher: connected: (", outlet.parent.name, ": outlet", outlet.index, \
                            "--->", inlet.parent.name, ": inlet", inlet.index, ")")
 
 

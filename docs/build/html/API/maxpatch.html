@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MaxPatch &mdash; MaxPy 0.0.1 documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="../_static/doctools.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="MaxObject" href="maxobject.html" />
+    <link rel="prev" title="API" href="API.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> MaxPy
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../topics/topics.html">Topics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support.html">Support</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="API.html">API</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">MaxPatch</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#instantiation">Instantiation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#properties">Properties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="maxobject.html">MaxObject</a></li>
+<li class="toctree-l2"><a class="reference internal" href="inlet.html">Inlet</a></li>
+<li class="toctree-l2"><a class="reference internal" href="outlet.html">Outlet</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../indices.html">Indices</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">MaxPy</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+          <li><a href="API.html">API</a> &raquo;</li>
+      <li>MaxPatch</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/API/maxpatch.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="maxpatch">
+<h1>MaxPatch<a class="headerlink" href="#maxpatch" title="Permalink to this heading">¶</a></h1>
+<section id="instantiation">
+<h2>Instantiation<a class="headerlink" href="#instantiation" title="Permalink to this heading">¶</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="maxpy.MaxPatch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">maxpy.</span></span><span class="sig-name descname"><span class="pre">MaxPatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">template</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">load_file</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reorder</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.MaxPatch" title="Permalink to this definition">¶</a></dt>
+<dd><p>This class represents a MaxMSP patch. A MaxPatch can be created as a copy of a template file,     or by loading in an existing <em>.maxpat</em> file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>template</strong> (<em>str</em><em>, </em><em>optional; default: None</em>) – the path to a template <em>.maxpat</em> file. Can be given as an absolute path, a relative path                      from the current directory, or a relative path from <code class="docutils literal notranslate"><span class="pre">MaxPy/maxpy/data/PATCH_TEMPLATES/</span></code>.</p></li>
+<li><p><strong>load_file</strong> (<em>str</em><em>, </em><em>optional; default: None</em>) – the path to an existing <em>.maxpat</em> file to be loaded in.                       Can be given as an absolute path or a relative path from the current directory.</p></li>
+<li><p><strong>reorder</strong> (<em>bool</em><em>, </em><em>optional; default: True</em>) – whether or not to reassign object ids after loading in an existing file. See <code class="xref py py-func docutils literal notranslate"><span class="pre">MaxPatch.reorder()</span></code>.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional; default: True</em>) – for logging output.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Notes:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>If <code class="docutils literal notranslate"><span class="pre">load_file</span></code> is given, <code class="docutils literal notranslate"><span class="pre">template</span></code> will be ignored. If neither files are given, a default empty MaxPatch will be created.</p></li>
+<li><p>To load in abstractions or js objects, the <a class="reference internal" href="../topics/linked_files.html"><span class="doc">linked files</span></a> must be in the current directory.</p></li>
+<li><p>To load in a patch with <a class="reference internal" href="../topics/ext_packages.html"><span class="doc">external package objects</span></a>, the packages should first be imported.</p></li>
+<li><p><a class="reference internal" href="../topics/unknown_objs.html"><span class="doc">Unknown objects</span></a> will retain patchcord connections when loaded in, but cannot be edited. They can be replaced with known objects via <code class="xref py py-func docutils literal notranslate"><span class="pre">MaxPatch.replace()</span></code>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Examples:</strong></p>
+<p>Creating an empty patch:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">empty_patch</span> <span class="o">=</span> <span class="n">maxpy</span><span class="o">.</span><span class="n">MaxPatch</span><span class="p">()</span>
+<span class="go">Patcher: new patch created from template file: empty_template.json</span>
+</pre></div>
+</div>
+<p>Loading in a patch containing a button connected to a counter:</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loaded_patch</span> <span class="o">=</span> <span class="n">maxpy</span><span class="o">.</span><span class="n">MaxPatch</span><span class="p">(</span><span class="n">load_file</span><span class="o">=</span><span class="s1">&#39;my_patch.maxpat&#39;</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="go">Patcher: loading patch from existing file: my_patch.maxpat</span>
+<span class="go">Patcher: button added, total objects 1</span>
+<span class="go">Patcher: counter added, total objects 2</span>
+<span class="go">Patcher: connected: ( button : outlet 0 ---&gt; counter : inlet 0 )</span>
+<span class="go">Patcher: patch loaded from existing file: my_patch.maxpat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+<section id="properties">
+<h2>Properties<a class="headerlink" href="#properties" title="Permalink to this heading">¶</a></h2>
+<dl class="py property">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.objs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">objs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.objs" title="Permalink to this definition">¶</a></dt>
+<dd><p>A dictionary of all Max objects in the patch, stored by object id. Read-only.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.num_objs">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">num_objs</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.num_objs" title="Permalink to this definition">¶</a></dt>
+<dd><p>The number of Max objects in the patch. Read-only.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.curr_position">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">curr_position</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.curr_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>The current position of the ‘cursor’ at which to place Max objects. Given as a two-element list [x, y] of patch coordinates.
+Can be set using <a class="reference internal" href="#maxpy.maxpatch.MaxPatch.set_position" title="maxpy.maxpatch.MaxPatch.set_position"><code class="xref py py-func docutils literal notranslate"><span class="pre">MaxPatch.set_position()</span></code></a>.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">dict</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">dict</span></em><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.dict" title="Permalink to this definition">¶</a></dt>
+<dd><p>The JSON dict of the patch. Read-only.</p>
+</dd></dl>
+
+<p><strong>Example:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">loaded_patch</span><span class="o">.</span><span class="n">objs</span>
+<span class="go">{&#39;obj-1&#39;: button [button], &#39;obj-2&#39;: counter [counter]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loaded_patch</span><span class="o">.</span><span class="n">num_objs</span>
+<span class="go">2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loaded_patch</span><span class="o">.</span><span class="n">curr_position</span>
+<span class="go">[0.0, 0.0]</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">loaded_patch</span><span class="o">.</span><span class="n">dict</span>
+<span class="go">{</span>
+<span class="go">&#39;patcher&#39;:</span>
+<span class="go">        {</span>
+<span class="go">        &#39;fileversion&#39;: 1,</span>
+<span class="go">        ...</span>
+<span class="go">        &#39;boxes&#39;: [ ... ],</span>
+<span class="go">        &#39;lines&#39;: [ ... ],</span>
+<span class="go">        &#39;dependency_cache&#39;: [],</span>
+<span class="go">        &#39;autosave&#39;: 0</span>
+<span class="go">        }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</section>
+<section id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this heading">¶</a></h2>
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.check">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">check</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">flags</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.check" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method checks the patch for linked abstractions, unknown objects, and linked/unlinked js objects.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>*flags</strong> (<em>str</em><em>, </em><em>optional</em>) – takes keywords <code class="docutils literal notranslate"><span class="pre">'abstractions'</span></code>, <code class="docutils literal notranslate"><span class="pre">'unknowns'</span></code>, <code class="docutils literal notranslate"><span class="pre">'js'</span></code>. If no flags given, checks all three categories.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>outputs a list of all the objects that fall under the specified categories,     identified by object id, name, text, and linked file (if applicable).</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>printed output</p>
+</dd>
+</dl>
+<p><strong>Notes:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>See <a class="reference internal" href="../topics/linked_files.html"><span class="doc">Linked Files</span></a>, <a class="reference internal" href="../topics/unknown_objs.html"><span class="doc">Unknown Objects</span></a>.</p></li>
+</ul>
+</div></blockquote>
+<p><strong>Example:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span><span class="o">.</span><span class="n">objs</span>
+<span class="go">{&#39;obj-1&#39;: not-an-obj [not-an-obj],</span>
+<span class="go">&#39;obj-2&#39;: existing-abstraction [existing-abstraction],</span>
+<span class="go">&#39;obj-3&#39;: js [js 5 4 existing.js],</span>
+<span class="go">&#39;obj-4&#39;: js [js not-a-file.js]}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span><span class="o">.</span><span class="n">check</span><span class="p">()</span>
+<span class="go">PatchCheck: unknown objects :</span>
+<span class="go">   obj-1 : not-an-obj [not-an-obj]</span>
+<span class="go">PatchCheck: unlinked js objects :</span>
+<span class="go">   obj-4 : js [js not-a-file.js]</span>
+<span class="go">PatchCheck: linked js objects (files must be in same folder as patch file):</span>
+<span class="go">   obj-3 : js [js 5 4 existing.js] --&gt; existing.js</span>
+<span class="go">PatchCheck: linked abstractions (files must be in same folder as patch file):</span>
+<span class="go">   obj-2 : existing-abstraction [existing-abstraction] --&gt; existing-abstraction.maxpat</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.connect">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">connections</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.connect" title="Permalink to this definition">¶</a></dt>
+<dd><p>This method creates patchcords to connect objects. <em>currently fixing connection specification…</em></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>*connections</strong> – a list of connections to make. Each connection must be specified as a tuple     (<a class="reference internal" href="outlet.html#maxpy.Outlet" title="maxpy.Outlet"><code class="xref py py-class docutils literal notranslate"><span class="pre">Outlet</span></code></a>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Inlet</span></code> (, <code class="docutils literal notranslate"><span class="pre">list</span></code>)). The optional third element specifies midpoints     (curves) of the patchcord as a list of [x, y] coordinates.</p></li>
+<li><p><strong>verbose</strong> (<em>bool</em><em>, </em><em>optional; default: True</em>) – for logging output.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>None.</p>
+</dd>
+</dl>
+<p><strong>Notes:</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li><p>The current scheme for specifying connections is somewhat clunky (see example below). </p></li>
+</ul>
+<p>This will be fixed at some point…</p>
+</div></blockquote>
+<p><strong>Example:</strong></p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">patch</span><span class="o">.</span><span class="n">objs</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.delete">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">delete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">objs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cords</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.delete" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete objects and/or patchcords.
+Deleting objects will automatically delete any patchcords attached to them.</p>
+<blockquote>
+<div><p>objs –&gt; list of string “obj-num” objects to delete</p>
+</div></blockquote>
+<p>cords –&gt; list of connections (Outlet, Inlet)</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.inspect">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">inspect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">info</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'all'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.inspect" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get desired information about specified objects.</p>
+<blockquote>
+<div><dl class="simple">
+<dt>objs –&gt; list of objs to get info about, as strings “obj-num”</dt><dd><ul class="simple">
+<li><p>if objs=”all”, print info for each object</p></li>
+</ul>
+</dd>
+<dt>info –&gt; desired info to print out </dt><dd><ul class="simple">
+<li><p>“all”: print all info below</p></li>
+<li><p>“canvas”: print obj-num, position, connections to each inlet/outlet</p></li>
+<li></li>
+<li><p>“attributes”: print current settings of all available attributes</p></li>
+<li><p>“common-box”: print current settings of common box attributes, if applicable</p></li>
+<li><p>“obj-attribs”: print current settings of obj-specific attributes, if applicable</p></li>
+<li></li>
+<li><p>“connections”: print connections to each inlet/outlet</p></li>
+<li><p>“position”: print position on canvas</p></li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.place">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">place</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">objs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">randpick</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_objs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'grid'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spacing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[80.0,</span> <span class="pre">80.0]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">starting_pos</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.place" title="Permalink to this definition">¶</a></dt>
+<dd><p>Place objects in the patch.</p>
+<blockquote>
+<div><blockquote>
+<div><p>objs –&gt; list of object names as strings, OR list of objects as prev. created MaxObjects (or mix of both)</p>
+</div></blockquote>
+<dl>
+<dt>randpick –&gt; True: pick n random objs from objs list (default pick 1)</dt><dd><ul class="simple">
+<li><p>num_objs –&gt; integer: n = num_objs</p></li>
+<li><p>num_objs –&gt; list: give error &amp; take first element on list</p></li>
+<li><p>num_objs –&gt; None: n = len(objs)</p></li>
+</ul>
+</dd>
+<dt>randpick –&gt; False: pick all objs on objs list (default each picked once)</dt><dd><blockquote>
+<div><blockquote>
+<div><ul class="simple">
+<li><p>num_objs –&gt; integer: each obj multiplied by num_objs</p></li>
+<li><p>num_objs –&gt; list: each objs multiplied by corresponding num_objs entry</p></li>
+<li><p>num_objs –&gt; None: n = len(objs)</p></li>
+</ul>
+</div></blockquote>
+<p>seed –&gt; random seed for picking/placing objs, if None then random seed</p>
+</div></blockquote>
+<p>weights –&gt; weight probabilities for picking objs, if None then equal probability</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="simple">
+<dt>spacing_type –&gt; options for how to place objs on canvas</dt><dd><ul class="simple">
+<li><dl class="simple">
+<dt>“grid”: objects centered on a grid</dt><dd><ul>
+<li><p>spacing –&gt; tuple/list length 2: [x, y] grid spacings</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“random”: random locations, using same seed as before (overlaps possible)</dt><dd><ul>
+<li><p>spacing –&gt; N/A</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“custom”: location specified for each object</dt><dd><ul>
+<li><p>spacing –&gt; list: positions [[x, y]], can only be used for num_objs=1</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>“vertical”: objects stacked vertically</dt><dd><ul>
+<li><p>spacing –&gt; number: specify height</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+<p>starting_pos –&gt; starting position to place from, must be tuple/list length 2: [x, y]</p>
+<p>verbose –&gt; print output for seed, etc.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.reorder">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">reorder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.reorder" title="Permalink to this definition">¶</a></dt>
+<dd><p>Re-number objects in patch, starting from 1.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.replace">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">replace</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">curr_obj_num</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_obj</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">retain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">new_attribs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.replace" title="Permalink to this definition">¶</a></dt>
+<dd><p>Replace an object in the patch with a different object.</p>
+<p>The new object can be specified as a string, or by reference to a MaxObject.
+Attributes in common (i.e. common box attribs) between old/new objects can be retained (will automatically retain).  
+Additional attribute settings will override retained attributes.
+Patchcords will automatically be retained if possible, starting from xlet 0.</p>
+<p>curr_obj_num –&gt; id number in ‘obj-num’ string format of current object to be replaced
+new_obj –&gt; either string specification or MaxObject of new object
+retain –&gt; retain all attributes in common between old/new objects
+verbose –&gt; log to console
+new_attribs –&gt; any new attributes to give to the new object</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.save">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'default.maxpat'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">check</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.save" title="Permalink to this definition">¶</a></dt>
+<dd><p>Save to .maxpat file.</p>
+<p>Usage:
+filename –&gt; savefile name
+verbose –&gt; print log message to console
+check –&gt; run check_patch before saving</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="maxpy.maxpatch.MaxPatch.set_position">
+<span class="sig-prename descclassname"><span class="pre">MaxPatch.</span></span><span class="sig-name descname"><span class="pre">set_position</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">new_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">new_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">from_place</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#maxpy.maxpatch.MaxPatch.set_position" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set the current “cursor” position from which objects will be placed.</p>
+<p>Must be formatted as [x, y] tuple or int of length 2.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="API.html" class="btn btn-neutral float-left" title="API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="maxobject.html" class="btn btn-neutral float-right" title="MaxObject" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Ranger Liu.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -18,7 +18,7 @@ Contents
 
    install
    tutorial
-   examples
+   topics/topics
    support
-   API
+   API/API
    indices

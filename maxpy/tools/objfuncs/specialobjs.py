@@ -15,6 +15,7 @@ Methods to handle special objects.
 from pathlib import Path
 import os
 import json
+import copy
 
 from maxpy.tools import typechecks as tc
 
@@ -65,7 +66,7 @@ def create_js(self, from_dict=None):
     #2. try to find file, looking only in current directory
     if os.path.exists(filename):
         self._ext_file = os.path.abspath(filename)
-        print("js : creation :", filename, "found, parsing for inlet/outlet numbers")
+        print("  ObjectMsg: js : creation :", filename, "found, parsing for inlet/outlet numbers")
     else:
         print("ObjectError: js : creation :", filename, "not found in current directory, file not linked")
         if not from_dict:
@@ -76,8 +77,7 @@ def create_js(self, from_dict=None):
     if from_dict:
         numinlets = self._dict['box']['numinlets']
         numoutlets = self._dict['box']['numoutlets']
-        self._args.insert(0, numinlets)
-        self._args.insert(0, numoutlets)
+        self._args = [numinlets, numoutlets, filename]
         self.update_text()
 
 
@@ -104,7 +104,7 @@ def update_js_from_file(self, filename, log_var=None):
     new_args_string = [str(numoutlets), str(numinlets), filename]
     self.edit(text = " ".join(new_args_string), text_add="replace")
 
-    print("js :", log_var, ":", numinlets, "inlets,", numoutlets, "outlets in accordance with", filename)
+    print("  ObjectMsg: js :", log_var, ":", numinlets, "inlets,", numoutlets, "outlets in accordance with", filename)
 
     return
 
@@ -217,7 +217,7 @@ def create_abstraction(self, text=None, extra_attribs=None, from_dict=True):
 
     else:
         self.make_xlets_from_self_dict()
-        print(self.name, ": creation :", self._ext_file, "file found, abstraction created")
+        print("  ObjectMsg:", self.name, ": creation :", self._ext_file, "file found, abstraction created")
 
     return
 
@@ -231,7 +231,7 @@ def update_abstraction_from_file(self, text, extra_attribs, log_var=None):
     numinlets, numoutlets = self.get_abstraction_io()
 
     #fill in dict
-    self._dict = self.unknown_obj_dict
+    self._dict = copy.deepcopy(self.unknown_obj_dict)
     self._dict['box']['numinlets'] = numinlets
     self._dict['box']['numoutlets'] = numoutlets
     self._dict['box']['outlettype'] = [""] * numoutlets
@@ -248,7 +248,7 @@ def update_abstraction_from_file(self, text, extra_attribs, log_var=None):
     self.make_xlets_from_self_dict()
 
     #log abstraction creation
-    print(self.name, ":", log_var, ":", self._ext_file, "file found, abstraction created")
+    print("  ObjectMsg:", self.name, ":", log_var, ":", self._ext_file, "file found, abstraction created")
 
     return
 

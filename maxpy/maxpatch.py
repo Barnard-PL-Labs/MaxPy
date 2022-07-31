@@ -9,30 +9,38 @@ from .xlet import Inlet, Outlet
 
 
 class MaxPatch():
+    """
+    This class represents a MaxMSP patch. A MaxPatch can be created as a copy of a template file, \
+    or by loading in an existing *.maxpat* file.
 
-    from .tools.constants import patch_templates_path #path to patch templates
+    :param template: the path to a template *.maxpat* file. Can be given as an absolute path, a relative path \
+                     from the current directory, or a relative path from ``MaxPy/maxpy/data/PATCH_TEMPLATES/``.
+    :type template: str, optional; default: None
+
+    :param load_file: the path to an existing *.maxpat* file to be loaded in. \
+                      Can be given as an absolute path or a relative path from the current directory.
+    :type load_file: str, optional; default: None
+
+    :param reorder: whether or not to reassign object ids after loading in an existing file. See :func:`MaxPatch.reorder`.
+    :type reorder: bool, optional; default: True
+
+    :param verbose: for logging output.
+    :type verbose: bool, optional; default: True
+    """
+
+    from .tools.constants import patch_templates_path #: Path to the patch templates folder MaxPy/maxpy/data/PATCH_TEMPLATES.
 
     def __init__(self, template=None, load_file=None, reorder=True, verbose=True):
-
         """
-        Initialization for MaxPatch object.
-
-        Usage:
-        template --> to create a new patch from template, give input path to template file
-        load_file --> to load in an existing file, input path to existing file
-        reorder --> re-number objects in loaded-in file, automatically enabled
-        verbose --> print log messages to console
-
-        If file is given, template will be ignored.
-        If no file is given and no template is given, will default to an empty patch.
+        Constructor method.
         """
 
         #instance variables:
-        self._objs = {}                   #objects in patch, ordered as "obj-num": object
-        self._num_objs = 0
-        self._patcher_dict = {}           #dictionary to save patcher data
-        self._curr_position = [0.0, 0.0]  #'cursor' position at which to save data
-        self._filename = "default.maxpat" #the file where the patch is saved
+        self._objs = {}                   #: objects in patch, referenced as "obj-num": object
+        self._num_objs = 0                #: number of objects in the patch
+        self._patcher_dict = {}           #: the patch's JSON data
+        self._curr_position = [0.0, 0.0]  #: 'cursor' position at which to place objects
+        self._filename = "default.maxpat" #: the file where the patch is saved
 
         #load existing maxpatch
         if load_file:
@@ -49,20 +57,32 @@ class MaxPatch():
 
     #some properties to get info...
     @property
-    def objs(self):
+    def objs(self) -> dict:
+        """
+        A dictionary of all Max objects in the patch, stored by object id. Read-only.
+        """
         return self._objs #this one is tricky bc you can still technically set the dictionary values....w/e
 
     @property
-    def num_objs(self):
+    def num_objs(self) -> int:
+        """
+        The number of Max objects in the patch. Read-only.
+        """
         return self._num_objs
 
     @property
-    def curr_position(self):
+    def curr_position(self) -> list [int, float]:
+        """
+        The current position of the 'cursor' at which to place Max objects. Given as a two-element list [x, y] of patch coordinates.
+        Can be set using :func:`MaxPatch.set_position`.
+        """
         return self._curr_position
 
     @property
-    def dict(self):
-        #gets the json representation of the patch
+    def dict(self) -> dict:
+        """
+        The JSON dict of the patch. Read-only.
+        """
         return self.get_json()
 
 
