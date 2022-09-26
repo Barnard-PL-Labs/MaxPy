@@ -50,61 +50,57 @@
         "box": {
           "id": "obj-1",
           "maxclass": "newobj",
-          "numinlets": 0,
-          "numoutlets": 0,
+          "numinlets": 1,
+          "numoutlets": 2,
+          "outlettype": [
+            "float",
+            "bang"
+          ],
           "patching_rect": [
             80.0,
             80.0,
-            34.0,
+            46.0,
             22.0
           ],
-          "text": "not-an-obj"
+          "text": "buffer~ LF"
         }
       },
       {
         "box": {
           "id": "obj-2",
           "maxclass": "newobj",
-          "numinlets": 4,
-          "numoutlets": 5,
+          "numinlets": 1,
+          "numoutlets": 2,
           "outlettype": [
-            "",
-            "",
-            "",
-            "",
-            ""
+            "float",
+            "bang"
           ],
           "patching_rect": [
             160.0,
             80.0,
-            18.0,
+            46.0,
             22.0
           ],
-          "saved_object_attributes": {
-            "filename": "example.js",
-            "parameter_enable": 0
-          },
-          "text": "js 5 4 example.js"
+          "text": "buffer~ RF"
         }
       },
       {
         "box": {
           "id": "obj-3",
           "maxclass": "newobj",
-          "numinlets": 5,
-          "numoutlets": 5,
+          "numinlets": 1,
+          "numoutlets": 2,
+          "outlettype": [
+            "float",
+            "bang"
+          ],
           "patching_rect": [
             240.0,
-            80.0
+            80.0,
+            46.0,
+            22.0
           ],
-          "text": "sample-abstraction",
-          "outlettype": [
-            "",
-            "",
-            "",
-            "",
-            ""
-          ]
+          "text": "buffer~ LB"
         }
       },
       {
@@ -112,25 +108,230 @@
           "id": "obj-4",
           "maxclass": "newobj",
           "numinlets": 1,
-          "numoutlets": 1,
+          "numoutlets": 2,
           "outlettype": [
-            ""
+            "float",
+            "bang"
           ],
           "patching_rect": [
             320.0,
             80.0,
-            18.0,
+            46.0,
             22.0
           ],
-          "saved_object_attributes": {
-            "filename": "not-a-file.js",
-            "parameter_enable": 0
-          },
-          "text": "js not-a-file"
+          "text": "buffer~ RB"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-5",
+          "maxclass": "newobj",
+          "numinlets": 3,
+          "numoutlets": 1,
+          "outlettype": [
+            "signal"
+          ],
+          "patching_rect": [
+            80.0,
+            200,
+            42.0,
+            22.0
+          ],
+          "text": "lores~"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-6",
+          "maxclass": "newobj",
+          "numinlets": 3,
+          "numoutlets": 1,
+          "outlettype": [
+            "signal"
+          ],
+          "patching_rect": [
+            160.0,
+            200,
+            42.0,
+            22.0
+          ],
+          "text": "lores~"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-7",
+          "maxclass": "newobj",
+          "numinlets": 3,
+          "numoutlets": 1,
+          "outlettype": [
+            "signal"
+          ],
+          "patching_rect": [
+            240.0,
+            200,
+            42.0,
+            22.0
+          ],
+          "text": "lores~"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-8",
+          "maxclass": "newobj",
+          "numinlets": 3,
+          "numoutlets": 1,
+          "outlettype": [
+            "signal"
+          ],
+          "patching_rect": [
+            320.0,
+            200,
+            42.0,
+            22.0
+          ],
+          "text": "lores~"
+        }
+      },
+      {
+        "box": {
+          "id": "obj-9",
+          "maxclass": "ezdac~",
+          "numinlets": 2,
+          "numoutlets": 0,
+          "patching_rect": [
+            80.0,
+            400,
+            45.0,
+            45.0
+          ],
+          "text": "ezdac~"
         }
       }
     ],
-    "lines": [],
+    "lines": [
+      {
+        "patchline": {
+          "destination": [
+            "obj-5",
+            0
+          ],
+          "source": [
+            "obj-1",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-6",
+            0
+          ],
+          "source": [
+            "obj-2",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-7",
+            0
+          ],
+          "source": [
+            "obj-3",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-8",
+            0
+          ],
+          "source": [
+            "obj-4",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-9",
+            0
+          ],
+          "source": [
+            "obj-5",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-9",
+            0
+          ],
+          "source": [
+            "obj-6",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-9",
+            0
+          ],
+          "source": [
+            "obj-7",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      },
+      {
+        "patchline": {
+          "destination": [
+            "obj-9",
+            0
+          ],
+          "source": [
+            "obj-8",
+            0
+          ],
+          "midpoints": [
+            null
+          ]
+        }
+      }
+    ],
     "dependency_cache": [],
     "autosave": 0
   }
