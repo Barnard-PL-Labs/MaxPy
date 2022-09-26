@@ -1,9 +1,4 @@
-from __future__ import annotations
-
-from itertools import cycle
-
 import maxpy as mp
-import numpy as np
 
 patch = mp.MaxPatch()
 bufferNames = ["buffer~ " + b for b in ["LF", "RF", "LB", "RB"]]
