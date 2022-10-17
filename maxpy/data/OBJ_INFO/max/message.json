@@ -17,32 +17,7 @@
     }
   },
   "args": {
-    "required": [
-      {
-        "name": "message",
-        "type": [
-          "list"
-        ]
-      },
-      {
-        "name": "changeable-arg",
-        "type": [
-          "symbol"
-        ]
-      },
-      {
-        "name": "comma",
-        "type": [
-          "symbol"
-        ]
-      },
-      {
-        "name": "backslash",
-        "type": [
-          "symbol"
-        ]
-      }
-    ],
+    "required": [],
     "optional": []
   },
   "attribs": [
