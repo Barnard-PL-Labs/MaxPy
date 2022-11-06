@@ -8,7 +8,7 @@ Mark demonstrates the basics of installing MaxPy, creating patches, and placing 
 <br>
 ### [Variable-Oscillator Synth](https://www.youtube.com/watch?v=nxusu32kkxs)       
 [![Variable-Oscillator Synth Explanation](https://img.youtube.com/vi/nxusu32kkxs/0.jpg)](https://www.youtube.com/watch?v=nxusu32kkxs)      
-Ranger explains a MaxPy script that dynamically generates an additive synth with a variable number of oscillators. 
+Ranger explains a MaxPy script that dynamically generates an additive synth with a variable number of oscillators. The code for this synth is under [examples/variable-osc-synth](examples/variable-osc-synth). 
 
 ## Documentation
 
