@@ -1,5 +1,5 @@
 # MaxPy
-MaxPy is a Python package for generating and editing Max patches through text-based programming. MaxPy allows users to move freely between text-based Python programming and visual programming in Max, making it much easier to implement dynamic patches, random patches, mass-placement and mass-connection of objects, and other easily text-programmed techniques.
+MaxPy is a Python package for metaprogramming of MaxMSP that uses Python to generate and edit Max patches. MaxPy allows users to move freely between text-based Python programming and visual programming in Max, making it much easier to implement dynamic patches, random patches, mass-placement and mass-connection of objects, and other easily text-programmed techniques.
   
 ## Video Demos 
 ### [Basics](https://www.youtube.com/watch?v=F8Fpe0Udc4M)      
