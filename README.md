@@ -15,7 +15,7 @@ Ranger explains a MaxPy script that dynamically generates an additive synth with
 You can read the docs [here](https://barnard-pl-labs.github.io/MaxPy) (under construction).    
 
 ## Formal Grammar of MaxMSP
-To aid the development of MaxPy, we attempted to define a formal grammar of MaxMSP as a programming language. However, we discovered three major issues: 1) typing problems, 2) irregular objects, and 3) mismatches between saved program files and in-environment program behavior. See [this Google doc](https://docs.google.com/document/d/e/2PACX-1vRzq-NvMRNXPquCyuzakgQNgc4mcXVVbJRlGcm-cyRzpWVJse_u1Dq0XG2G9H3So0_MNozzjAzeiH1_/pub) (in progress) for a writeup of these issues.   
+To aid the development of MaxPy, we attempted to define a formal grammar of MaxMSP as a programming language. However, we discovered three major issues: 1) typing problems, 2) irregular objects, and 3) mismatches between saved program files and in-environment program behavior. See [this Google doc](https://docs.google.com/document/u/5/d/e/2PACX-1vQuFN8D44U0Z2s_2Jn3AcnZTgZrhUOEkb2gffNPamdWSFFroIWiXKIFlCmmnJs1XF0L7yd18yhqJO8a/pub) (in progress) for a writeup of these issues.   
 
 ## Contributors
 Ranger Liu (developer)   
