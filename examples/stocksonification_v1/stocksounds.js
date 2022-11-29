@@ -5,7 +5,7 @@ const { parse } = require("csv-parse");
 const { randomInt } = require('crypto');
 
 const api_key = finnhub.ApiClient.instance.authentications['api_key'];
-api_key.apiKey = "ce34lvaad3ici68dqfn0ce34lvaad3ici68dqfng" 
+api_key.apiKey = "YourAPIKeyHere" 
 const finnhubClient = new finnhub.DefaultApi()
 
 
