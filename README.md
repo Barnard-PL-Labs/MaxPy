@@ -9,6 +9,13 @@ Mark demonstrates the basics of installing MaxPy, creating patches, and placing 
 ### [Variable-Oscillator Synth](https://www.youtube.com/watch?v=nxusu32kkxs)       
 [![Variable-Oscillator Synth Explanation](https://img.youtube.com/vi/nxusu32kkxs/0.jpg)](https://www.youtube.com/watch?v=nxusu32kkxs)      
 Ranger explains a MaxPy script that dynamically generates an additive synth with a variable number of oscillators. The code for this synth is under [examples/variable-osc-synth](examples/variable-osc-synth). 
+<br>
+### [Replace() function]((https://youtu.be/RgYRqXn8Z6o))       
+[![Using Replace() function with MaxPy](https://img.youtube.com/vi/RgYRqXn8Z6o/0.jpg)](https://youtu.be/RgYRqXn8Z6o)      
+Satch explains using the replace() function to selectively replace objects in a loaded patch to sonify stock data. The code for this is under [examples/stocksonification_v1](examples/stocksonification_v1). 
+
+
+
 
 ## Documentation
 
