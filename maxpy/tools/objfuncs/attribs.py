@@ -39,6 +39,8 @@ def get_all_valid_attribs(self, text_attribs, extra_attribs, attrib_info):
 
     #add common box attributes if necessary
     total_attrib_info = attrib_info
+    #add access to patching_rect attrib
+    total_attrib_info.append({'name': 'patching_rect', 'type': 'float', 'size': '4'})
     if 'COMMON' in [attrib['name'] for attrib in attrib_info]:
         total_attrib_info += self.common_box_attribs
 
