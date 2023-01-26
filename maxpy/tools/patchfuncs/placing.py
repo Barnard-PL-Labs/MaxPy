@@ -215,7 +215,7 @@ def place_pick_objs(self, objs, randpick, num_objs, seed, weights, verbose):
 
     # multiply from given list
     elif randpick == False:
-        objs = objs[0]
+        #objs = objs[0] not sure why this was here
         if isinstance(objs, str):
             objs = [objs]
 
