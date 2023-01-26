@@ -72,7 +72,10 @@ def get_text(self):
     Get text field for MaxObject dict from self.name/args/text_attribs. 
     """
     
-    text = self._name
+    if self._name != "message":
+        text = self._name
+    else:
+        text = ""
 
     if len(self._args) != 0:
         str_args = [str(x) for x in self._args]
