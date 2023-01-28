@@ -40,6 +40,17 @@
 		"assistshowspatchername" : 0,
 		"boxes" : [ 			{
 				"box" : 				{
+					"id" : "obj-9",
+					"maxclass" : "comment",
+					"numinlets" : 1,
+					"numoutlets" : 0,
+					"patching_rect" : [ 283.0, 397.0, 181.0, 20.0 ],
+					"text" : "FEN: r5k1/8/p7/3Q4/8/8/B7/7K"
+				}
+
+			}
+, 			{
+				"box" : 				{
 					"id" : "obj-28",
 					"maxclass" : "ezdac~",
 					"numinlets" : 2,
@@ -270,7 +281,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 350.0, 297.0, 63.0, 22.0 ],
 					"text" : "king-synth"
 				}
@@ -282,7 +293,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 208.0, 197.0, 75.0, 22.0 ],
 					"text" : "queen-synth"
 				}
@@ -294,7 +305,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 197.0, 70.0, 22.0 ],
 					"text" : "pawn-synth"
 				}
@@ -306,7 +317,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 350.0, 101.0, 63.0, 22.0 ],
 					"text" : "king-synth"
 				}
@@ -318,7 +329,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 101.0, 65.0, 22.0 ],
 					"text" : "rook-synth"
 				}
@@ -330,7 +341,7 @@
 					"maxclass" : "newobj",
 					"numinlets" : 3,
 					"numoutlets" : 1,
-					"outlettype" : [ "signal" ],
+					"outlettype" : [ "" ],
 					"patching_rect" : [ 56.0, 297.0, 77.0, 22.0 ],
 					"text" : "bishop-synth"
 				}
@@ -348,7 +359,7 @@
 , 			{
 				"patchline" : 				{
 					"destination" : [ "obj-2", 1 ],
-					"midpoints" : [ 110.0, 84.0, 90.0, 84.0, 90.0, 96.0, 88.5, 96.0 ],
+					"midpoints" : [ 110.0, 84.0, 90.0, 84.0, 90.0, 96.0, 111.5, 96.0 ],
 					"source" : [ "obj-10", 0 ]
 				}
 
@@ -530,42 +541,7 @@
 
 			}
  ],
-		"dependency_cache" : [ 			{
-				"name" : "bishop-synth.maxpat",
-				"bootpath" : "~/Documents/maxpy/paper stuff/chess example",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "king-synth.maxpat",
-				"bootpath" : "~/Documents/maxpy/paper stuff/chess example",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "pawn-synth.maxpat",
-				"bootpath" : "~/Documents/maxpy/paper stuff/chess example",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "queen-synth.maxpat",
-				"bootpath" : "~/Documents/maxpy/paper stuff/chess example",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
-, 			{
-				"name" : "rook-synth.maxpat",
-				"bootpath" : "~/Documents/maxpy/paper stuff/chess example",
-				"patcherrelativepath" : ".",
-				"type" : "JSON",
-				"implicit" : 1
-			}
- ],
+		"dependency_cache" : [  ],
 		"autosave" : 0
 	}
 
