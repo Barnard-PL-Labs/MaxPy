@@ -11,6 +11,16 @@ Functions of the MaxObject class that are exposed to the user.
 
 import os
 
+def move(self, x, y):
+    """
+    Move an object to the specified location. 
+    """
+    
+    self._dict['box']['patching_rect'][0] = x
+    self._dict['box']['patching_rect'][1] = y
+    
+    return
+
 def edit(self, text_add = "append", text = None, **extra_attribs):
     """
     Edit an object by adding/replacing text and specifying attributes. 

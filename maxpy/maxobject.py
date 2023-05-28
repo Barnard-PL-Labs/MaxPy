@@ -72,7 +72,7 @@ class MaxObject():
         """
         return self._outs
 
-    from .tools.objfuncs.exposed import edit, link, inspect #exposed functions for user use
+    from .tools.objfuncs.exposed import move, edit, link, inspect #exposed functions for user use
 
 
 
