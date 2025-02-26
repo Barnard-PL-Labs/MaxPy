@@ -13,3 +13,7 @@ for b, f in zip(bs, fs):
 for f in fs:
     patch.connect([f.outs[0], d.ins[0]])
 patch.save("test.maxpat")
+
+for k, v in patch.objs.items():
+  if v == "print (k)
+  print (v)
